@@ -1,8 +1,7 @@
 import { Container } from '@/components/container';
 import { SectionHeading } from '@/components/section-heading';
 import { Reveal } from '@/components/reveal';
-import { DraftBadge } from '@/components/draft-badge';
-import { profile } from '@/content/profile';
+import { profile, whatRepeats } from '@/content/profile';
 
 export function About() {
   return (
@@ -12,31 +11,19 @@ export function About() {
         <Reveal className="grid gap-8 md:grid-cols-[1.2fr_0.8fr]" delay={0.05}>
           <div className="space-y-4 text-lg leading-relaxed text-muted-fg">
             <p>{profile.summary}</p>
-            <p className="text-sm text-muted-fg/80">
-              TODO: добавить 2-3 абзаца о подходе к работе — как выбираешь приоритеты, как
-              общаешься с заказчиком, что для тебя значит &laquo;хорошо сделанный релиз&raquo; и
-              т.п. Без пунктов &laquo;руководила / общалась / вела документацию&raquo; — я знаю,
-              ты просила без этого.
-            </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-6">
-            <dl className="space-y-4 text-sm">
-              <div>
-                <dt className="text-muted-fg">Локация</dt>
-                <dd className="mt-1 font-medium">{profile.location}</dd>
-              </div>
-              <div>
-                <dt className="text-muted-fg">Опыт</dt>
-                <dd className="mt-1 font-medium">TODO: сколько лет / в каких доменах</dd>
-              </div>
-              <div>
-                <dt className="text-muted-fg">Домен</dt>
-                <dd className="mt-1 font-medium">TODO: логистика / порты / госинтеграции?</dd>
-              </div>
-            </dl>
-            <div className="mt-5">
-              <DraftBadge />
-            </div>
+            <p className="mb-4 font-mono text-[11px] uppercase tracking-wide text-accent">
+              Что повторяется в опыте
+            </p>
+            <ul className="space-y-3 text-sm text-muted-fg">
+              {whatRepeats.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </Container>

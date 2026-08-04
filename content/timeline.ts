@@ -11,9 +11,12 @@ export type TimelineItem = {
 export const timeline: TimelineItem[] = [
   {
     period: 'TODO: даты',
-    title: 'TODO: должность',
+    title: 'TODO: точная должность (судя по позиционированию — Technical Project / Program Manager)',
     place: 'Порт Транзит',
-    summary: 'TODO: 2-3 предложения о зоне ответственности на этом месте.',
+    summary:
+      'Интеграции (ЭТрН, Контур, ГЛОНАСС, Астрал), техническое расследование production-инцидентов, ' +
+      'координация критических сбоев, продуктовое направление для перевозчиков, автоматизация ' +
+      'сертификатов и платежей — детали в Engineering Case Studies выше.',
   },
   {
     period: 'TODO: даты',

@@ -59,15 +59,25 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="grid gap-6 border-t border-border p-6 pt-6 sm:grid-cols-2">
-              {fields.map(({ key, label }) => (
-                <div key={key}>
-                  <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wide text-accent">
-                    {label}
+            <div className="border-t border-border p-6 pt-6">
+              {study.draft && study.draftNote && (
+                <div className="mb-6 rounded-xl border border-dashed border-accent/40 bg-accent/5 p-4">
+                  <p className="mb-1 font-mono text-[11px] uppercase tracking-wide text-accent">
+                    Чего не хватает
                   </p>
-                  <p className="text-sm leading-relaxed text-muted-fg">{study[key] as string}</p>
+                  <p className="text-sm text-muted-fg">{study.draftNote}</p>
                 </div>
-              ))}
+              )}
+              <div className="grid gap-6 sm:grid-cols-2">
+                {fields.map(({ key, label }) => (
+                  <div key={key}>
+                    <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wide text-accent">
+                      {label}
+                    </p>
+                    <p className="text-sm leading-relaxed text-muted-fg">{study[key] as string}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
