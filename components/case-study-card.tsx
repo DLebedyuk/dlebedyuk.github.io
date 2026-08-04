@@ -4,7 +4,7 @@ import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { DraftBadge } from '@/components/draft-badge';
-import type { CaseStudy } from '@/content/case-studies';
+import { caseStudyCategories, type CaseStudy } from '@/content/case-studies';
 
 const fields: { key: keyof CaseStudy; label: string }[] = [
   { key: 'context', label: 'Контекст' },
@@ -19,6 +19,7 @@ const fields: { key: keyof CaseStudy; label: string }[] = [
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   const [open, setOpen] = React.useState(false);
+  const category = caseStudyCategories.find((c) => c.id === study.category);
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card">
@@ -28,6 +29,11 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         className="flex w-full items-start justify-between gap-4 p-6 text-left"
       >
         <div>
+          {category && (
+            <p className="mb-2 font-mono text-[11px] uppercase tracking-wide text-muted-fg">
+              {category.label}
+            </p>
+          )}
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <h3 className="text-lg font-medium">{study.title}</h3>
             {study.draft && <DraftBadge />}

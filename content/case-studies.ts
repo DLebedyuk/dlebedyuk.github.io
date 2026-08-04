@@ -2,10 +2,41 @@
 // Ничего сверх этого файла не добавлено. Где в исходнике нет детали — честно TODO,
 // а не додумано. draftNote объясняет ИМЕННО чего не хватает по каждому кейсу —
 // у большинства есть реальная история и роль, но нет цифр/масштаба/эффекта.
+//
+// category — деление кейсов по типу работы, а не по хронологии. Разбивка моя,
+// можно оспорить и перетасовать (особенно спорны certificate/payment-automation —
+// они и product, и process одновременно, я отнесла их к product, т.к. это скорее
+// "довела фичу от идеи до результата", чем "управляла процессом").
+
+export type CaseStudyCategory = 'integrations' | 'investigations' | 'product' | 'process';
+
+export const caseStudyCategories: { id: CaseStudyCategory; label: string; description: string }[] = [
+  {
+    id: 'integrations',
+    label: 'Технические интеграции',
+    description: 'Внешние системы, госреестры, операторы ЭДО и легаси API.',
+  },
+  {
+    id: 'investigations',
+    label: 'Расследования и инциденты',
+    description: 'Диагностика без документации и координация в моменте сбоя.',
+  },
+  {
+    id: 'product',
+    label: 'Продукт и автоматизация',
+    description: 'От идеи и требований до работающей фичи.',
+  },
+  {
+    id: 'process',
+    label: 'Управление процессами',
+    description: 'Релизы и координация нескольких команд/проектов параллельно.',
+  },
+];
 
 export type CaseStudy = {
   slug: string;
   title: string;
+  category: CaseStudyCategory;
   oneLiner: string;
   context: string;
   problem: string;
@@ -24,6 +55,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'port-transit-incident',
     title: 'Координация критического инцидента на терминале',
+    category: 'investigations',
     oneLiner:
       'Терминал не мог принимать автомобили из-за сбоя с удалением таймслотов — собрала людей и организовала устранение.',
     context:
@@ -47,6 +79,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'fgis-zerno',
     title: 'Интеграция с ФГИС «Зерно»',
+    category: 'integrations',
     oneLiner: 'TODO — тема не встретилась в присланном материале вообще.',
     context: 'TODO',
     problem: 'TODO',
@@ -63,6 +96,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'etrn-launch',
     title: 'Запуск приёма автомобилей по ЭТрН на терминале «Подскок»',
+    category: 'integrations',
     oneLiner:
       'Без выделенного продакта обеспечила готовность терминала к обязательному переходу на ЭТрН с 1 сентября.',
     context:
@@ -85,6 +119,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'etrn-edo-scenarios',
     title: 'Сценарии ЭТрН и роуминг операторов ЭДО',
+    category: 'integrations',
     oneLiner: 'Разбирала сложные сценарии электронных транспортных накладных и взаимодействие операторов ЭДО.',
     context:
       'Требовалось разобраться в сложных сценариях работы электронных транспортных накладных и взаимодействии операторов ЭДО.',
@@ -104,6 +139,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'astral',
     title: 'Интеграция с Астрал',
+    category: 'integrations',
     oneLiner: 'Заранее выявила риск, связанный с лицензией новой технологии, до того как он стал проблемой.',
     context: 'TODO — известен только сам факт риска, бизнес-контекст интеграции с Астралом не зафиксирован.',
     problem: 'Заранее был найден риск, связанный с лицензией новой технологии.',
@@ -120,6 +156,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'glonass',
     title: 'Интеграция с ГЛОНАСС против мошенничества',
+    category: 'integrations',
     oneLiner: 'Организовала интеграцию с ГЛОНАСС для борьбы с мошенничеством, которого требовал бизнес.',
     context: 'Бизнесу требовалась борьба с мошенничеством.',
     problem: 'TODO — конкретный вектор мошенничества не зафиксирован.',
@@ -136,6 +173,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'soap-integrations',
     title: 'SOAP-интеграции',
+    category: 'integrations',
     oneLiner: 'TODO — тема не встретилась в присланном материале.',
     context: 'TODO',
     problem: 'TODO',
@@ -152,6 +190,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'certificate-automation',
     title: 'Автоматизация контроля сертификатов',
+    category: 'product',
     oneLiner: 'Автоматизировала мониторинг сроков действия сертификатов: сбор данных, уведомления, календарные напоминания.',
     context: 'Требовалось контролировать сроки действия сертификатов без постоянной ручной проверки.',
     problem: 'Ручной контроль сроков создавал риск пропустить продление критичного сертификата.',
@@ -169,6 +208,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'payment-automation',
     title: 'Автоматизация обработки платежей',
+    category: 'product',
     oneLiner: 'Автоматизировала обработку платежей между системами, сократив ручные операции.',
     context: 'В приёме платежей были ручные операции и риск ошибок обработки данных.',
     problem: 'Ручная обработка платежей между системами создавала риск ошибок.',
@@ -185,6 +225,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'release-management',
     title: 'Планирование релизов на нескольких проектах',
+    category: 'process',
     oneLiner: 'Планировала релизы и синхронизировала бизнес с технической командой при изменениях законодательства.',
     context: 'Вела несколько проектов параллельно.',
     problem: 'TODO — в материале это общее описание практики, а не конкретная проблема (частые откаты? срыв сроков?).',
@@ -201,6 +242,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'multi-team-management',
     title: 'Координация разработки, тестирования, дизайна и DevOps одновременно',
+    category: 'process',
     oneLiner: 'Координировала несколько функций параллельно на нескольких проектах.',
     context: 'Вела несколько проектов параллельно.',
     problem: 'TODO.',
@@ -218,6 +260,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'carrier-product-ownership',
     title: 'Продуктовое направление для перевозчиков',
+    category: 'product',
     oneLiner: 'Взяла на себя продуктовое направление: промо-лендинг, подписки, метрики, North Star Metric.',
     context: 'На проекте потребовалось взять на себя часть продуктовой работы для перевозчиков.',
     problem: 'TODO — что именно не работало до того, как подхватила направление, не зафиксировано.',
@@ -235,6 +278,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'kontur-integration',
     title: 'Восстановление и запуск интеграции с Контуром',
+    category: 'integrations',
     oneLiner: 'Восстановила утраченную интеграцию с Контуром и довела до рабочего обмена накладными через API.',
     context: 'В компании было потеряно полное понимание старой интеграции с Контуром; требовалось настроить получение транспортных накладных через API.',
     problem: 'Никто не понимал, как работает существующая интеграция, а при проверке выяснилось, что она оформлена не на то юридическое лицо.',
@@ -253,6 +297,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'production-investigation',
     title: 'Техническое расследование аномальных изменений в production',
+    category: 'investigations',
     oneLiner: 'Нашла недокументированный сервис, который менял production-данные в обход основной бизнес-логики.',
     context: 'В production-базе появлялись записи с неизвестным для команды источником; документации и полной карты системы не было.',
     problem: 'Нужно было понять, откуда берутся аномальные изменения данных, не имея ни документации, ни карты того, как сервисы связаны между собой.',
@@ -273,6 +318,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'telegram-bot-waybills',
     title: 'Проектирование Telegram-бота для работы с накладными',
+    category: 'product',
     oneLiner: 'Прорабатывала доступ к транспортным накладным через Telegram-бота: авторизацию, документы, QR-коды.',
     context: 'Требовалось проработать сценарии доступа к накладным через Telegram-бота.',
     problem: 'TODO — какая проблема стояла за задачей (неудобство текущего канала получения накладных?) не названа.',
