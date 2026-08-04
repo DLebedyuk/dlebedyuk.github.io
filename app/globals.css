@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 255 255 255;
+  --fg: 15 17 21;
+  --muted: 244 245 247;
+  --muted-fg: 100 106 118;
+  --card: 255 255 255;
+  --border: 228 230 235;
+  --accent: 37 99 235;
+  --accent-fg: 255 255 255;
+}
+
+.dark {
+  --bg: 10 11 14;
+  --fg: 237 238 240;
+  --muted: 22 24 29;
+  --muted-fg: 148 153 163;
+  --card: 16 18 23;
+  --border: 32 35 42;
+  --accent: 96 148 255;
+  --accent-fg: 10 11 14;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+::selection {
+  background-color: rgb(var(--accent) / 0.25);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
