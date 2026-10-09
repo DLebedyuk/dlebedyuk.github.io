@@ -6,7 +6,7 @@ import { projects } from '@/content/projects';
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 md:py-28">
+    <section id="projects" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
           eyebrow="Projects"

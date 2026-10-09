@@ -5,7 +5,7 @@ import { enjoySolving } from '@/content/profile';
 
 export function EnjoySolving() {
   return (
-    <section id="enjoy" className="py-20 md:py-28">
+    <section id="enjoy" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading eyebrow="Things I Enjoy Solving" title="Что мне интересно решать" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -5,7 +5,7 @@ import { skillCategories } from '@/content/skills';
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 md:py-28">
+    <section id="skills" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading eyebrow="Technical Skills" title="Стек и области" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

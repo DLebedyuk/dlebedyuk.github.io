@@ -5,7 +5,7 @@ import { timeline } from '@/content/timeline';
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20 md:py-28">
+    <section id="experience" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
           eyebrow="Experience & Timeline"

@@ -17,7 +17,7 @@ export function CaseStudies() {
     active === 'all' ? caseStudies : caseStudies.filter((s) => s.category === active);
 
   return (
-    <section id="case-studies" className="py-20 md:py-28">
+    <section id="case-studies" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
           eyebrow="Engineering Case Studies"
@@ -25,7 +25,10 @@ export function CaseStudies() {
           description="Контекст, ограничения, решения и компромиссы по каждой задаче. Ни у одной пока нет подтверждённых цифр — это честно помечено на карточке."
         />
 
-        <Reveal className="mb-10 flex flex-wrap gap-2" delay={0.05}>
+        <Reveal
+          className="mb-10 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
+          delay={0.05}
+        >
           <FilterPill
             active={active === 'all'}
             onClick={() => setActive('all')}
@@ -79,7 +82,7 @@ function FilterPill({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+      className={`shrink-0 whitespace-nowrap rounded-full border px-3.5 py-2 text-sm transition-colors ${
         active
           ? 'border-fg bg-fg text-bg'
           : 'border-border text-muted-fg hover:border-accent/50 hover:text-fg'

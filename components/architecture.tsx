@@ -8,7 +8,7 @@ export function Architecture() {
   const internal = integrationNodes.filter((n) => n.kind === 'internal');
 
   return (
-    <section id="architecture" className="py-20 md:py-28">
+    <section id="architecture" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
           eyebrow="Architecture & Integrations"
@@ -16,8 +16,8 @@ export function Architecture() {
           description="TODO: заменить на реальную диаграмму потоков данных, когда будут детали по каждой системе."
         />
         <Reveal>
-          <div className="rounded-2xl border border-border bg-card p-8">
-            <div className="grid gap-8 md:grid-cols-[1fr_auto_1fr] md:items-center">
+          <div className="rounded-2xl border border-border bg-card p-5 sm:p-8">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-[1fr_auto_1fr] md:items-center">
               <div className="space-y-3">
                 <p className="font-mono text-[11px] uppercase tracking-wide text-muted-fg">
                   Внешние системы

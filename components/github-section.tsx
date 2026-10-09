@@ -6,7 +6,7 @@ import { githubStats } from '@/content/projects';
 
 export function GithubSection() {
   return (
-    <section id="github" className="py-20 md:py-28">
+    <section id="github" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading eyebrow="GitHub" title="Открытый код" />
         <Reveal>
@@ -14,7 +14,7 @@ export function GithubSection() {
             href={githubStats.profileUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex flex-col items-start justify-between gap-6 rounded-2xl border border-border bg-card p-8 transition-colors hover:border-accent/50 sm:flex-row sm:items-center"
+            className="group flex flex-col items-start justify-between gap-6 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-accent/50 sm:flex-row sm:items-center sm:p-8"
           >
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">

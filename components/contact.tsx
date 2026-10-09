@@ -1,15 +1,16 @@
 import { Github, Mail } from 'lucide-react';
 import { Container } from '@/components/container';
 import { Reveal } from '@/components/reveal';
+import { ResumeButtons } from '@/components/resume-buttons';
 import { profile } from '@/content/profile';
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-14 sm:py-20 md:py-28">
       <Container>
-        <Reveal className="rounded-2xl border border-border bg-card p-10 text-center md:p-16">
+        <Reveal className="rounded-2xl border border-border bg-card p-6 text-center sm:p-10 md:p-16">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Contact</p>
-          <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+          <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
             Обсудим проект?
           </h2>
           <p className="mx-auto mt-4 max-w-md text-balance text-muted-fg">
@@ -34,6 +35,7 @@ export function Contact() {
               GitHub
             </a>
           </div>
+          <ResumeButtons className="mt-3 justify-center" />
         </Reveal>
       </Container>
     </section>

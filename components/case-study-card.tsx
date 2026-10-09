@@ -26,9 +26,9 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-start justify-between gap-4 p-6 text-left"
+        className="flex w-full items-start justify-between gap-3 p-5 text-left sm:gap-4 sm:p-6"
       >
-        <div>
+        <div className="min-w-0 flex-1">
           {category && (
             <p className="mb-2 font-mono text-[11px] uppercase tracking-wide text-muted-fg">
               {category.label}
@@ -65,7 +65,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="border-t border-border p-6 pt-6">
+            <div className="border-t border-border p-5 pt-5 sm:p-6 sm:pt-6">
               {study.draft && study.draftNote && (
                 <div className="mb-6 rounded-xl border border-dashed border-accent/40 bg-accent/5 p-4">
                   <p className="mb-1 font-mono text-[11px] uppercase tracking-wide text-accent">
@@ -74,7 +74,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
                   <p className="text-sm text-muted-fg">{study.draftNote}</p>
                 </div>
               )}
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid gap-6 lg:grid-cols-2">
                 {fields.map(({ key, label }) => (
                   <div key={key}>
                     <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wide text-accent">
