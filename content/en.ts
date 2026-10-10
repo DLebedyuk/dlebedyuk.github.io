@@ -6,6 +6,8 @@ import type { CaseStudy, CaseStudyCategory } from './case-studies';
 export const profileEn = {
   tagline:
     'Technical Project / Program Manager',
+  metaDescription:
+    'I run interconnected projects in grain logistics: government system and EDI integrations, electronic waybills, time slots. Experience, case studies and skills.',
   summary:
     'Technical project manager with experience in integrations and API development. I lead cross-functional teams (including external ones) at every stage: from decomposing business tasks to launching solutions in production. I understand system architecture and how services interact, and I work at the intersection of business and development. I work with complex integrations and legacy systems and help get tasks to delivery faster.',
   location: 'Rostov-on-Don, Russia',

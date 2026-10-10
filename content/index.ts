@@ -32,6 +32,7 @@ export type SiteContent = {
     name: string;
     role: string;
     tagline: string;
+    metaDescription: string;
     summary: string;
     location: string;
     email: string;
@@ -100,6 +101,7 @@ export function getContent(locale: Locale): SiteContent {
       name: en ? 'Daria Lebedyuk' : profile.name,
       role: profile.role,
       tagline: en ? profileEn.tagline : profile.tagline,
+      metaDescription: en ? profileEn.metaDescription : profile.metaDescription,
       summary: en ? profileEn.summary : profile.summary,
       location: en ? profileEn.location : profile.location,
       email: profile.email,

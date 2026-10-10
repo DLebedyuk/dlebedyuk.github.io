@@ -16,7 +16,15 @@ export function buildMetadata(locale: Locale): Metadata {
   return {
     metadataBase: new URL(SITE_URL),
     title: `${c.profile.name} — ${c.ui.siteTitleSuffix}`,
-    description: c.profile.tagline,
+    description: c.profile.metaDescription,
+    openGraph: {
+      title: `${c.profile.name} — ${c.ui.siteTitleSuffix}`,
+      description: c.profile.metaDescription,
+      url: locale === 'en' ? '/en/' : '/',
+      siteName: c.profile.name,
+      locale: locale === 'en' ? 'en_US' : 'ru_RU',
+      type: 'website',
+    },
     alternates: {
       canonical: locale === 'en' ? '/en/' : '/',
       languages: { ru: '/', en: '/en/' },
