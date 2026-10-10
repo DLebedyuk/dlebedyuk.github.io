@@ -15,15 +15,6 @@ export function Hero({ c }: { c: SiteContent }) {
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_-10%,rgb(var(--accent)/0.14),transparent_45%)]"
       />
       <Container>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-5 font-mono text-sm text-accent"
-        >
-          {profile.role}
-        </motion.p>
-
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

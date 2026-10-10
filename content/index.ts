@@ -2,10 +2,7 @@ import { showDrafts } from '@/lib/config';
 import { profile } from './profile';
 import { keySkills, enjoySolving } from './profile';
 import { caseStudies, caseStudyCategories, type CaseStudy, type CaseStudyCategory } from './case-studies';
-import { skillCategories } from './skills';
 import { workRu, workEn, educationRu, educationEn, coursesRu, coursesEn, cvSkillsRu, cvSkillsEn, linkedin, type WorkItem, type EducationItem, type CourseItem } from './cv';
-import { projects } from './projects';
-import { achievements } from './achievements';
 import { ui, type Locale, type UI } from './ui';
 import {
   profileEn,
@@ -13,9 +10,6 @@ import {
   enjoySolvingEn,
   categoriesEn,
   caseStudiesEn,
-  skillsEn,
-  projectsEn,
-  achievementsEn,
 } from './en';
 
 export type { Locale } from './ui';
@@ -54,8 +48,6 @@ export type SiteContent = {
   timeline: WorkItem[];
   education: EducationItem[];
   courses: CourseItem[];
-  projects: { name: string; url: string; language: string | null; isFork: boolean; description: string }[];
-  achievements: { metric: string; label: string; context: string }[];
 };
 
 const caseFields = [
@@ -98,30 +90,7 @@ export function getContent(locale: Locale): SiteContent {
   }
 
   // --- skills
-  let skills = skillCategories.map((cat) => {
-    const tr = en ? skillsEn[cat.title] : undefined;
-    return { title: tr?.title ?? cat.title, items: tr?.items ?? cat.items };
-  });
-  skills = [...skills, ...(en ? cvSkillsEn : cvSkillsRu)];
-  if (!showDrafts) {
-    skills = skills
-      .map((c) => ({ ...c, items: c.items.filter((i) => !hasTodo(i)) }))
-      .filter((c) => c.items.length > 0);
-  }
-
-  // --- projects
-  const prs = projects.map((p) => ({
-    ...p,
-    description: clean(en ? projectsEn[p.name] ?? p.description : p.description),
-  }));
-
-  // --- achievements
-  let ach = achievements.map((a, i) => ({
-    ...a,
-    label: en ? achievementsEn[i]?.label ?? a.label : a.label,
-    context: en ? achievementsEn[i]?.context ?? a.context : a.context,
-  }));
-  if (!showDrafts) ach = ach.filter((a) => !hasTodo(a.metric));
+  const skills = en ? cvSkillsEn : cvSkillsRu;
 
   return {
     locale,
@@ -154,7 +123,5 @@ export function getContent(locale: Locale): SiteContent {
     timeline: en ? workEn : workRu,
     education: en ? educationEn : educationRu,
     courses: en ? coursesEn : coursesRu,
-    projects: prs,
-    achievements: ach,
   };
 }

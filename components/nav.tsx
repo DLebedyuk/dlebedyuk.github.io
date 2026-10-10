@@ -13,10 +13,9 @@ export function Nav({ c }: { c: SiteContent }) {
 
   const links = [
     { href: '#about', label: n.about },
-    { href: '#case-studies', label: n.cases },
     { href: '#experience', label: n.experience },
     { href: '#education', label: n.education },
-    { href: '#projects', label: n.projects },
+    { href: '#case-studies', label: n.cases },
     { href: '#skills', label: n.skills },
     { href: '#contact', label: n.contact },
   ];

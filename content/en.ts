@@ -5,7 +5,7 @@ import type { CaseStudy, CaseStudyCategory } from './case-studies';
 
 export const profileEn = {
   tagline:
-    'Technical project manager for B2B and infrastructure products: complex integrations, technical investigations, launching projects with incomplete requirements.',
+    'Technical Project / Program Manager',
   summary:
     'Technical project manager with experience in integrations and API development. I lead cross-functional teams (including external ones) at every stage: from decomposing business tasks to launching solutions in production. I understand system architecture and how services interact, and I work at the intersection of business and development. I work with complex integrations and legacy systems and help get tasks to delivery faster.',
   location: 'Rostov-on-Don, Russia',
@@ -22,11 +22,8 @@ export const keySkillsEn = [
 export const enjoySolvingEn = [
   'Stitching heterogeneous systems — APIs, EDI, external vendors — into one working process.',
   'Working incidents while they are hot: assembling the right people and keeping stakeholders informed.',
-  'Removing manual routine from processes and turning it into a predictable pipeline.',
-  'Reconstructing a system map from code and traffic when there is no documentation.',
-  'Translating regulatory and technical requirements into clear tasks for the team.',
-  'Syncing business and the technical team when deadlines are set by legislation, not by the backlog.',
-  'Digging to the real cause through the loop hypothesis → check → new data.',
+  'Reconstructing a system map from code and traffic when there is no documentation, and digging to the real cause.',
+  'Turning regulatory requirements into clear tasks and hitting deadlines set by legislation, not by the backlog.',
   'Keeping several teams and projects in one context at once.',
   'Gathering requirements and launching changes when part of the information is simply unavailable.',
 ];
@@ -227,46 +224,3 @@ export const caseStudiesEn: Record<string, CaseEn> = {
     draftNote: 'Addition from another discussion — launch result (did the bot reach production) is not confirmed.',
   },
 };
-
-export const skillsEn: Record<string, { title: string; items: string[] }> = {
-  'Project / Program Management': {
-    title: 'Project / Program Management',
-    items: [
-      'Technical project / program management',
-      'Requirements gathering and formalisation under uncertainty',
-      'Incident management and stakeholder communication',
-      'Regulatory releases in logistics',
-    ],
-  },
-  'Интеграции и внешние системы': {
-    title: 'Integrations and external systems',
-    items: ['ETrN', 'EPL', 'SDIZ', 'EDI / operator roaming', 'Kontur API', 'GLONASS', 'Astral'],
-  },
-  'Технические расследования': {
-    title: 'Technical investigations',
-    items: [
-      'Analysing distributed systems without documentation',
-      'PHP (Yii1, Yii2), C#, Angular — at code-reading and investigation level',
-      'Network traffic, server configuration, JWT',
-    ],
-  },
-  'Продукт и автоматизация': {
-    title: 'Product & automation',
-    items: ['Product metrics and North Star Metric', 'Operational process automation'],
-  },
-};
-
-export const projectsEn: Record<string, string> = {
-  ruby_koans: 'Fork of the Edgecase Ruby Koans course — Ruby practice.',
-  primitives: 'Fork of the mmcs-ruby learning repository — Ruby practice.',
-  CompGraph: 'University project (sfedu) — TODO: clarify what exactly was implemented.',
-};
-
-export const achievementsEn = [
-  {
-    label: 'Recovered Kontur integration',
-    context: 'Integration with Kontur.Logistics launched for working with electronic transport waybills',
-  },
-  { label: 'Certificate automation', context: 'How many certificates are under control, how often they were missed before' },
-  { label: 'Resolving a critical incident', context: 'Terminal downtime before and after the process was organised' },
-];

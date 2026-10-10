@@ -19,6 +19,7 @@ export function Experience({ c }: { c: SiteContent }) {
               <h3 className="mt-1 text-lg font-medium">
                 {item.place} · {item.title}
               </h3>
+              {item.about && <p className="mt-1.5 max-w-3xl text-sm text-muted-fg">{item.about}</p>}
               <ul className="mt-3 max-w-3xl space-y-2.5 text-sm text-muted-fg">
                 {item.bullets.map((b) => (
                   <li key={b.title} className="flex gap-2">

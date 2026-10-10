@@ -5,13 +5,12 @@ export type Locale = 'ru' | 'en';
 
 const ru = {
   htmlLang: 'ru',
-  siteTitleSuffix: 'Technical Project Manager',
+  siteTitleSuffix: 'Technical Project / Program Manager',
   nav: {
     about: 'Обо мне',
     cases: 'Кейсы',
     experience: 'Опыт',
     education: 'Образование',
-    projects: 'Проекты',
     skills: 'Навыки',
     contact: 'Контакты',
     menu: 'Меню',
@@ -48,19 +47,7 @@ const ru = {
     title: 'Где и над чем я работала',
   },
   education: { eyebrow: 'Образование', title: 'Чему и где училась', additional: 'Дополнительное образование' },
-  projects: {
-    eyebrow: 'Проекты',
-    title: 'Pet-проекты и open source',
-    description:
-      'Реальные репозитории с github.com/DLebedyuk — в основном ранние, учебные. Показывают стиль, а не рабочий стек.',
-    fork: 'форк',
-  },
   skills: { eyebrow: 'Навыки', title: 'Стек и области' },
-  achievements: {
-    eyebrow: 'Результаты',
-    title: 'Что удалось довести до конца',
-    descriptionDraft: 'TODO: цифры и метрики — самая убедительная часть портфолио, а сейчас самая пустая.',
-  },
   contact: {
     eyebrow: 'Контакты',
     title: 'Обсудим проект?',
@@ -68,20 +55,18 @@ const ru = {
     telegram: 'Telegram',
     linkedin: 'LinkedIn',
   },
-  footer: { built: 'Собрано на Next.js + Tailwind + Framer Motion' },
 };
 
 export type UI = typeof ru;
 
 const en: UI = {
   htmlLang: 'en',
-  siteTitleSuffix: 'Technical Project Manager',
+  siteTitleSuffix: 'Technical Project / Program Manager',
   nav: {
     about: 'About',
     cases: 'Case studies',
     experience: 'Experience',
     education: 'Education',
-    projects: 'Projects',
     skills: 'Skills',
     contact: 'Contact',
     menu: 'Menu',
@@ -118,19 +103,7 @@ const en: UI = {
     title: "Where I've worked and on what",
   },
   education: { eyebrow: 'Education', title: 'What and where I studied', additional: 'Additional education' },
-  projects: {
-    eyebrow: 'Projects',
-    title: 'Pet projects and open source',
-    description:
-      'Real repositories from github.com/DLebedyuk — mostly early, educational ones. They show style, not my working stack.',
-    fork: 'fork',
-  },
   skills: { eyebrow: 'Skills', title: 'Stack and areas' },
-  achievements: {
-    eyebrow: 'Results',
-    title: 'What I got over the line',
-    descriptionDraft: 'TODO: numbers and metrics — the most convincing part of a portfolio, and currently the emptiest.',
-  },
   contact: {
     eyebrow: 'Contact',
     title: "Let's talk",
@@ -138,7 +111,6 @@ const en: UI = {
     telegram: 'Telegram',
     linkedin: 'LinkedIn',
   },
-  footer: { built: 'Built with Next.js + Tailwind + Framer Motion' },
 };
 
 export const ui: Record<Locale, UI> = { ru, en };
