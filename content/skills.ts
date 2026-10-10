@@ -34,12 +34,4 @@ export const skillCategories: SkillCategory[] = [
     title: 'Продукт и автоматизация',
     items: ['Продуктовые метрики и North Star Metric', 'Автоматизация операционных процессов'],
   },
-  {
-    title: 'Backend / DevOps',
-    items: ['TODO: язык(и) и фреймворки, в которых сама пишет/писала код', 'TODO: CI/CD, инфраструктура'],
-  },
-  {
-    title: 'Аналитика и отчётность',
-    items: ['TODO: BI-инструменты', 'TODO: SQL/аналитические витрины'],
-  },
 ];

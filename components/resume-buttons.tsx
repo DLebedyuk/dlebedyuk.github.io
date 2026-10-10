@@ -1,13 +1,12 @@
 import { Download } from 'lucide-react';
-import { profile } from '@/content/profile';
+import type { SiteContent } from '@/content';
 import { cn } from '@/lib/utils';
 
-const items = [
-  { href: profile.resume.ru, label: 'Резюме (RU)', file: 'Lebedyuk-Daria-resume-ru.pdf' },
-  { href: profile.resume.en, label: 'Resume (EN)', file: 'Lebedyuk-Daria-resume-en.pdf' },
-];
-
-export function ResumeButtons({ className }: { className?: string }) {
+export function ResumeButtons({ c, className }: { c: SiteContent; className?: string }) {
+  const items = [
+    { href: c.profile.resume.ru, label: c.ui.resume.ru, file: 'Lebedyuk-Daria-resume-ru.pdf' },
+    { href: c.profile.resume.en, label: c.ui.resume.en, file: 'Lebedyuk-Daria-resume-en.pdf' },
+  ];
   return (
     <div className={cn('flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center', className)}>
       {items.map((it) => (

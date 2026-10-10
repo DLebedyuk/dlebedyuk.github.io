@@ -3,29 +3,32 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { DraftBadge } from '@/components/draft-badge';
-import { caseStudyCategories, type CaseStudy } from '@/content/case-studies';
+import type { CaseStudy } from '@/content/case-studies';
+import type { SiteContent } from '@/content';
 
-const fields: { key: keyof CaseStudy; label: string }[] = [
-  { key: 'context', label: 'Контекст' },
-  { key: 'problem', label: 'Проблема' },
-  { key: 'whyHard', label: 'Почему это было сложно' },
-  { key: 'role', label: 'Моя роль' },
-  { key: 'decisions', label: 'Какие решения принимались' },
-  { key: 'tradeoffs', label: 'Компромиссы' },
-  { key: 'outcome', label: 'Что получилось' },
-  { key: 'learned', label: 'Чему научилась' },
-];
+const fieldKeys = [
+  'context',
+  'problem',
+  'whyHard',
+  'role',
+  'decisions',
+  'tradeoffs',
+  'outcome',
+  'learned',
+] as const;
 
-export function CaseStudyCard({ study }: { study: CaseStudy }) {
+export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }) {
   const [open, setOpen] = React.useState(false);
-  const category = caseStudyCategories.find((c) => c.id === study.category);
+  const category = c.categories.find((x) => x.id === study.category);
+  const t = c.ui.cases;
+  const fields = fieldKeys.filter((k) => study[k].trim() !== '');
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
         className="flex w-full items-start justify-between gap-3 p-5 text-left sm:gap-4 sm:p-6"
       >
         <div className="min-w-0 flex-1">
@@ -36,17 +39,22 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           )}
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <h3 className="text-lg font-medium">{study.title}</h3>
-            {study.draft && <DraftBadge />}
+            {study.draft && (
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-accent/50 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide text-accent">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                {t.draft}
+              </span>
+            )}
           </div>
-          <p className="text-sm text-muted-fg">{study.oneLiner}</p>
+          {study.oneLiner && <p className="text-sm text-muted-fg">{study.oneLiner}</p>}
           {study.technologies.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-2">
-              {study.technologies.map((t) => (
+              {study.technologies.map((tech) => (
                 <span
-                  key={t}
+                  key={tech}
                   className="rounded-full bg-muted px-2.5 py-1 font-mono text-[11px] text-muted-fg"
                 >
-                  {t}
+                  {tech}
                 </span>
               ))}
             </div>
@@ -69,18 +77,18 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
               {study.draft && study.draftNote && (
                 <div className="mb-6 rounded-xl border border-dashed border-accent/40 bg-accent/5 p-4">
                   <p className="mb-1 font-mono text-[11px] uppercase tracking-wide text-accent">
-                    Чего не хватает
+                    {t.missing}
                   </p>
                   <p className="text-sm text-muted-fg">{study.draftNote}</p>
                 </div>
               )}
               <div className="grid gap-6 lg:grid-cols-2">
-                {fields.map(({ key, label }) => (
+                {fields.map((key) => (
                   <div key={key}>
                     <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wide text-accent">
-                      {label}
+                      {t.fields[key]}
                     </p>
-                    <p className="text-sm leading-relaxed text-muted-fg">{study[key] as string}</p>
+                    <p className="text-sm leading-relaxed text-muted-fg">{study[key]}</p>
                   </div>
                 ))}
               </div>

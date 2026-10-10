@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
 
-export function ThemeToggle() {
+export function ThemeToggle({ toLight, toDark }: { toLight: string; toDark: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -19,7 +19,7 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label={isDark ? 'Включить светлую тему' : 'Включить тёмную тему'}
+      aria-label={isDark ? toLight : toDark}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-fg transition-colors hover:bg-muted"
     >

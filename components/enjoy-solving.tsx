@@ -1,15 +1,15 @@
 import { Container } from '@/components/container';
 import { SectionHeading } from '@/components/section-heading';
 import { Reveal } from '@/components/reveal';
-import { enjoySolving } from '@/content/profile';
+import type { SiteContent } from '@/content';
 
-export function EnjoySolving() {
+export function EnjoySolving({ c }: { c: SiteContent }) {
   return (
     <section id="enjoy" className="py-14 sm:py-20 md:py-28">
       <Container>
-        <SectionHeading eyebrow="Things I Enjoy Solving" title="Что мне интересно решать" />
+        <SectionHeading eyebrow={c.ui.enjoy.eyebrow} title={c.ui.enjoy.title} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {enjoySolving.map((item, i) => (
+          {c.enjoySolving.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.04}>
               <div className="h-full rounded-2xl border border-border bg-card p-6 transition-colors hover:border-accent/50">
                 <h3 className="font-medium">{item.title}</h3>

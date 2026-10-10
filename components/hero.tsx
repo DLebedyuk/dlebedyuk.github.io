@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Mail } from 'lucide-react';
 import { Container } from '@/components/container';
 import { ResumeButtons } from '@/components/resume-buttons';
-import { profile } from '@/content/profile';
+import type { SiteContent } from '@/content';
 
-export function Hero() {
+export function Hero({ c }: { c: SiteContent }) {
+  const { profile, ui } = c;
   return (
     <section id="top" className="relative overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-36 md:pb-32">
       <div
@@ -42,7 +43,7 @@ export function Hero() {
             href="#case-studies"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:-translate-y-0.5"
           >
-            Смотреть кейсы
+            {ui.hero.cases}
             <ArrowDown className="h-4 w-4" />
           </a>
           <a
@@ -59,7 +60,7 @@ export function Hero() {
             className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
           >
             <Mail className="h-4 w-4" />
-            Написать
+            {ui.hero.write}
           </a>
         </motion.div>
 
@@ -69,7 +70,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.24 }}
           className="mt-3"
         >
-          <ResumeButtons />
+          <ResumeButtons c={c} />
         </motion.div>
       </Container>
     </section>

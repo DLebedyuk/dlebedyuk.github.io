@@ -6,23 +6,25 @@ import { Container } from '@/components/container';
 import { SectionHeading } from '@/components/section-heading';
 import { Reveal } from '@/components/reveal';
 import { CaseStudyCard } from '@/components/case-study-card';
-import { caseStudies, caseStudyCategories, type CaseStudyCategory } from '@/content/case-studies';
+import type { CaseStudyCategory } from '@/content/case-studies';
+import type { SiteContent } from '@/content';
 
 type FilterValue = CaseStudyCategory | 'all';
 
-export function CaseStudies() {
+export function CaseStudies({ c }: { c: SiteContent }) {
   const [active, setActive] = React.useState<FilterValue>('all');
-
-  const filtered =
-    active === 'all' ? caseStudies : caseStudies.filter((s) => s.category === active);
+  const t = c.ui.cases;
+  const all = c.caseStudies;
+  const filtered = active === 'all' ? all : all.filter((s) => s.category === active);
+  const cats = c.categories.filter((cat) => all.some((s) => s.category === cat.id));
 
   return (
     <section id="case-studies" className="py-14 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Engineering Case Studies"
-          title="Инженерные истории, а не строчки из Jira"
-          description="Контекст, ограничения, решения и компромиссы по каждой задаче. Ни у одной пока нет подтверждённых цифр — это честно помечено на карточке."
+          eyebrow={t.eyebrow}
+          title={t.title}
+          description={c.showDrafts ? t.descriptionDraft : t.description}
         />
 
         <Reveal
@@ -32,16 +34,16 @@ export function CaseStudies() {
           <FilterPill
             active={active === 'all'}
             onClick={() => setActive('all')}
-            label="Все"
-            count={caseStudies.length}
+            label={t.all}
+            count={all.length}
           />
-          {caseStudyCategories.map((cat) => (
+          {cats.map((cat) => (
             <FilterPill
               key={cat.id}
               active={active === cat.id}
               onClick={() => setActive(cat.id)}
               label={cat.label}
-              count={caseStudies.filter((s) => s.category === cat.id).length}
+              count={all.filter((s) => s.category === cat.id).length}
             />
           ))}
         </Reveal>
@@ -57,7 +59,7 @@ export function CaseStudies() {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               >
-                <CaseStudyCard study={study} />
+                <CaseStudyCard study={study} c={c} />
               </motion.div>
             ))}
           </AnimatePresence>

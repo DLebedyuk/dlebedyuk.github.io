@@ -4,26 +4,28 @@ import * as React from 'react';
 import { Menu, X } from 'lucide-react';
 import { Container } from '@/components/container';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { profile } from '@/content/profile';
+import { LangSwitch } from '@/components/lang-switch';
+import type { SiteContent } from '@/content';
 
-const links = [
-  { href: '#about', label: 'About' },
-  { href: '#case-studies', label: 'Case Studies' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#architecture', label: 'Architecture' },
-  { href: '#contact', label: 'Contact' },
-];
-
-export function Nav() {
+export function Nav({ c }: { c: SiteContent }) {
   const [open, setOpen] = React.useState(false);
+  const n = c.ui.nav;
+
+  const links = [
+    { href: '#about', label: n.about },
+    { href: '#case-studies', label: n.cases },
+    { href: '#experience', label: n.experience },
+    { href: '#education', label: n.education },
+    { href: '#projects', label: n.projects },
+    { href: '#skills', label: n.skills },
+    { href: '#contact', label: n.contact },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-3">
         <a href="#top" className="shrink-0 truncate font-mono text-sm font-medium">
-          {profile.name}
+          {c.profile.name}
         </a>
 
         <nav className="hidden items-center gap-5 lg:flex lg:gap-6">
@@ -39,10 +41,11 @@ export function Nav() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <ThemeToggle />
+          <LangSwitch locale={c.locale} label={n.switchLang} />
+          <ThemeToggle toLight={n.toLight} toDark={n.toDark} />
           <button
             type="button"
-            aria-label="Меню"
+            aria-label={n.menu}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-border lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
