@@ -15,7 +15,7 @@ export function Contact({ c }: { c: SiteContent }) {
       <Container>
         <Reveal className="rounded-2xl border border-border bg-card p-6 text-center sm:p-10 md:p-16">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{t.eyebrow}</p>
-          <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
+          <h2 className="mt-3 text-balance font-display text-2xl font-medium tracking-tight md:text-3xl">
             {t.title}
           </h2>
           <p className="mx-auto mt-4 max-w-md text-balance text-muted-fg">{t.text}</p>

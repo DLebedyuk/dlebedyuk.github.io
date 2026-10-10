@@ -14,7 +14,7 @@ export const profile = {
   location: 'Ростов-на-Дону, Россия',
   email: 'dilebedyuk@gmail.com',
   github: 'https://github.com/DLebedyuk',
-  telegram: 'DLebedyuk',
+  telegram: 'DILebedyuk',
   // Файлы лежат в public/ — положи туда resume-ru.pdf и resume-en.pdf
   resume: {
     ru: '/resume-ru.pdf',
