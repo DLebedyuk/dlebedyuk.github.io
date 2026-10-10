@@ -19,7 +19,7 @@ export function Hero({ c }: { c: SiteContent }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="max-w-3xl text-balance text-3xl font-semibold leading-[1.15] tracking-tight sm:text-4xl sm:leading-[1.1] md:text-5xl lg:text-6xl"
+          className="max-w-3xl text-balance font-display text-3xl font-medium leading-[1.15] tracking-tight sm:text-4xl sm:leading-[1.1] md:text-5xl"
         >
           {profile.tagline}
         </motion.h1>
