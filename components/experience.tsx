@@ -30,6 +30,14 @@ export function Experience({ c }: { c: SiteContent }) {
                   </li>
                 ))}
               </ul>
+              {item.gapAfter && (
+                <div className="relative mt-10 flex items-center gap-3 text-xs text-muted-fg">
+                  <span className="absolute -left-[2.2rem] h-2 w-2 rounded-full border border-border bg-bg" />
+                  <span className="h-px w-8 shrink-0 border-t border-dashed border-border" />
+                  <span className="font-mono uppercase tracking-wide">{item.gapAfter}</span>
+                  <span className="h-px flex-1 border-t border-dashed border-border" />
+                </div>
+              )}
             </Reveal>
           ))}
         </div>

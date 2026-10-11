@@ -18,19 +18,14 @@ const ru = {
     toDark: 'Включить тёмную тему',
     switchLang: 'Switch to English',
   },
-  hero: { cases: 'Смотреть кейсы', write: 'Написать' },
+  hero: { cases: 'Смотреть кейсы' },
   resume: { ru: 'Резюме (RU)', en: 'Resume (EN)' },
   about: { eyebrow: 'Обо мне', title: 'Коротко о том, как я работаю', keySkills: 'Ключевые навыки' },
   enjoy: { eyebrow: 'Интересы', title: 'Что мне интересно решать' },
   cases: {
     eyebrow: 'Кейсы',
-    title: 'Инженерные истории, а не строчки из Jira',
-    descriptionDraft:
-      'Контекст, ограничения, решения и компромиссы по каждой задаче. Ни у одной пока нет подтверждённых цифр — это честно помечено на карточке.',
-    description: 'Контекст, ограничения, решения и компромиссы по каждой задаче.',
+    title: 'Ситуации, с которыми я сталкивалась, и как я из них выходила',
     all: 'Все',
-    draft: 'Черновик',
-    missing: 'Чего не хватает',
     fields: {
       context: 'Контекст',
       problem: 'Проблема',
@@ -39,7 +34,6 @@ const ru = {
       decisions: 'Какие решения принимались',
       tradeoffs: 'Компромиссы',
       outcome: 'Что получилось',
-      learned: 'Чему научилась',
     },
   },
   experience: {
@@ -50,8 +44,8 @@ const ru = {
   skills: { eyebrow: 'Навыки', title: 'Стек и области' },
   contact: {
     eyebrow: 'Контакты',
-    title: 'Обсудим проект?',
-    text: 'Пишите на почту или в Telegram — отвечу быстро.',
+    title: 'Открыта к предложениям',
+    text: 'Пишите на почту или в Telegram.',
     telegram: 'Telegram',
     linkedin: 'LinkedIn',
   },
@@ -74,19 +68,14 @@ const en: UI = {
     toDark: 'Switch to dark theme',
     switchLang: 'Переключить на русский',
   },
-  hero: { cases: 'View case studies', write: 'Get in touch' },
+  hero: { cases: 'View case studies' },
   resume: { ru: 'Resume (RU)', en: 'Resume (EN)' },
   about: { eyebrow: 'About', title: 'How I work, in short', keySkills: 'Key skills' },
   enjoy: { eyebrow: 'Focus areas', title: 'Things I enjoy solving' },
   cases: {
     eyebrow: 'Case studies',
-    title: 'Engineering stories, not Jira tickets',
-    descriptionDraft:
-      'Context, constraints, decisions and trade-offs for each task. None has confirmed numbers yet — this is marked on the card.',
-    description: 'Context, constraints, decisions and trade-offs for each task.',
+    title: 'Situations I ran into and how I got out of them',
     all: 'All',
-    draft: 'Draft',
-    missing: 'What is missing',
     fields: {
       context: 'Context',
       problem: 'Problem',
@@ -95,7 +84,6 @@ const en: UI = {
       decisions: 'Decisions made',
       tradeoffs: 'Trade-offs',
       outcome: 'Outcome',
-      learned: 'What I learned',
     },
   },
   experience: {
@@ -106,8 +94,8 @@ const en: UI = {
   skills: { eyebrow: 'Skills', title: 'Stack and areas' },
   contact: {
     eyebrow: 'Contact',
-    title: "Let's talk",
-    text: 'Write to me by email or on Telegram — I reply quickly.',
+    title: 'Open to offers',
+    text: 'Write to me by email or on Telegram.',
     telegram: 'Telegram',
     linkedin: 'LinkedIn',
   },

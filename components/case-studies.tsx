@@ -21,11 +21,7 @@ export function CaseStudies({ c }: { c: SiteContent }) {
   return (
     <section id="case-studies" className="py-14 sm:py-20 md:py-28">
       <Container>
-        <SectionHeading
-          eyebrow={t.eyebrow}
-          title={t.title}
-          description={c.showDrafts ? t.descriptionDraft : t.description}
-        />
+        <SectionHeading eyebrow={t.eyebrow} title={t.title} />
 
         <Reveal
           className="mb-10 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"

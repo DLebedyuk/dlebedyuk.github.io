@@ -14,7 +14,6 @@ const fieldKeys = [
   'decisions',
   'tradeoffs',
   'outcome',
-  'learned',
 ] as const;
 
 export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }) {
@@ -39,14 +38,7 @@ export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }
           )}
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <h3 className="text-lg font-medium">{study.title}</h3>
-            {study.draft && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-accent/50 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide text-accent">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                {t.draft}
-              </span>
-            )}
           </div>
-          {study.oneLiner && <p className="text-sm text-muted-fg">{study.oneLiner}</p>}
           {study.technologies.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-2">
               {study.technologies.map((tech) => (
@@ -74,14 +66,6 @@ export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="border-t border-border p-5 pt-5 sm:p-6 sm:pt-6">
-              {study.draft && study.draftNote && (
-                <div className="mb-6 rounded-xl border border-dashed border-accent/40 bg-accent/5 p-4">
-                  <p className="mb-1 font-mono text-[11px] uppercase tracking-wide text-accent">
-                    {t.missing}
-                  </p>
-                  <p className="text-sm text-muted-fg">{study.draftNote}</p>
-                </div>
-              )}
               <div className="grid gap-6 lg:grid-cols-2">
                 {fields.map((key) => (
                   <div key={key}>

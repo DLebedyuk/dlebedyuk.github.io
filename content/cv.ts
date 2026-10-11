@@ -6,6 +6,7 @@ export type WorkItem = {
   place: string;
   location: string;
   about?: string;
+  gapAfter?: string;
   bullets: { title: string; text: string }[];
 };
 
@@ -18,6 +19,7 @@ export const workRu: WorkItem[] = [
   {
     period: 'Сентябрь 2023 — н.в.',
     title: 'Технический менеджер проектов и программ',
+    gapAfter: 'Февраль — сентябрь 2023 · диплом, окончание университета',
     place: 'Порт Транзит',
     location: 'Удалённо',
     about:
@@ -35,7 +37,7 @@ export const workRu: WorkItem[] = [
     title: 'Java-разработчик',
     place: 'IDPay',
     location: 'Удалённо',
-    about: 'Российское подразделение армянского банка. Работала над сервисом денежных переводов из России в Армению.',
+    about: 'Российское подразделение армянского банка. Работала над сервисом денежных переводов из России в Армению. Занималась админ-панелью этой системы.',
     bullets: [
       { title: 'Разработка backend Admin API', text: 'Усиливала масштабируемость и отказоустойчивость.' },
       { title: 'Рост нагрузки на 350%', text: 'Оптимизировала код и повысила стабильность.' },
@@ -48,6 +50,7 @@ export const workEn: WorkItem[] = [
   {
     period: 'September 2023 — Present',
     title: 'Technical Project / Program Manager',
+    gapAfter: 'February — September 2023 · diploma, graduating from university',
     place: 'Port Transit',
     location: 'Remote',
     about:
@@ -65,7 +68,7 @@ export const workEn: WorkItem[] = [
     title: 'Java Developer',
     place: 'IDPay',
     location: 'Remote',
-    about: 'Russian branch of an Armenian bank. Worked on the money transfer service from Russia to Armenia.',
+    about: 'Russian branch of an Armenian bank. Worked on the money transfer service from Russia to Armenia. Worked on the admin panel of this system.',
     bullets: [
       { title: 'Backend Admin API development', text: 'Strengthened scalability and fault tolerance.' },
       { title: '350% load growth', text: 'Optimized code and improved stability.' },
@@ -86,13 +89,15 @@ export const educationEn: EducationItem[] = [
 export const coursesRu: CourseItem[] = [
   { provider: 'Яндекс Практикум', name: 'DevOps для эксплуатации и разработки' },
   { provider: 'VK Education', name: 'Основы продакт-менеджмента' },
-  { provider: 'Coursera', name: 'Budgeting and Scheduling Projects, Initiating and Planning Projects' },
+  { provider: 'Coursera', name: 'Budgeting and Scheduling Projects' },
+  { provider: 'Coursera', name: 'Initiating and Planning Projects' },
   { provider: 'Michigan State University (Coursera)', name: 'Data Analytics with R' },
 ];
 export const coursesEn: CourseItem[] = [
   { provider: 'Yandex Practicum', name: 'DevOps for Operations and Development' },
   { provider: 'VK Education', name: 'Fundamentals of Product Management' },
-  { provider: 'Coursera', name: 'Budgeting and Scheduling Projects, Initiating and Planning Projects' },
+  { provider: 'Coursera', name: 'Budgeting and Scheduling Projects' },
+  { provider: 'Coursera', name: 'Initiating and Planning Projects' },
   { provider: 'Michigan State University (Coursera)', name: 'Data Analytics with R' },
 ];
 
@@ -100,13 +105,13 @@ export const cvSkillsRu = [
   { title: 'Технические навыки', items: ['SQL', 'API', 'REST', 'JSON', 'XML', 'интеграции систем', 'клиент-серверная архитектура'] },
   { title: 'Технические расследования', items: ['анализ распределённых систем без документации', 'чтение кода PHP (Yii1, Yii2), C#, Angular', 'сетевой трафик', 'конфигурация серверов', 'JWT'] },
   { title: 'Инструменты', items: ['Jira', 'Confluence', 'Notion', 'Miro', 'Lucidchart', 'GanttPRO', 'GitLab CI/CD', 'Postman', 'Swagger'] },
-  { title: 'Компетенции / методологии', items: ['Agile', 'Scrum', 'Kanban', 'управление проектами', 'кросс-командное взаимодействие', 'работа с требованиями в условиях неопределённости', 'incident management', 'коммуникация со стейкхолдерами', 'регуляторные релизы', 'техническая документация', 'управление рисками', 'приоритизация'] },
+  { title: 'Компетенции / методологии', items: ['Agile', 'Scrum', 'Kanban', 'управление проектами', 'работа с требованиями', 'техническая документация', 'управление рисками'] },
   { title: 'Языки', items: ['Русский (родной)', 'Английский (B2)', 'Французский (B2)'] },
 ];
 export const cvSkillsEn = [
   { title: 'Technical skills', items: ['SQL', 'API', 'REST', 'JSON', 'XML', 'systems integration', 'client-server architecture'] },
   { title: 'Technical investigations', items: ['analysing distributed systems without documentation', 'reading PHP (Yii1, Yii2), C#, Angular code', 'network traffic', 'server configuration', 'JWT'] },
   { title: 'Tools', items: ['Jira', 'Confluence', 'Notion', 'Miro', 'Lucidchart', 'GanttPRO', 'GitLab CI/CD', 'Postman', 'Swagger'] },
-  { title: 'Competencies / methodologies', items: ['Agile', 'Scrum', 'Kanban', 'project management', 'cross-team collaboration', 'requirements under uncertainty', 'incident management', 'stakeholder communication', 'regulatory releases', 'technical documentation', 'risk management', 'prioritization'] },
+  { title: 'Competencies / methodologies', items: ['Agile', 'Scrum', 'Kanban', 'project management', 'requirements management', 'technical documentation', 'risk management'] },
   { title: 'Languages', items: ['Russian (native)', 'English (B2)', 'French (B2)'] },
 ];

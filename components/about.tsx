@@ -10,7 +10,7 @@ export function About({ c }: { c: SiteContent }) {
         <SectionHeading eyebrow={c.ui.about.eyebrow} title={c.ui.about.title} />
         <Reveal className="grid gap-8 md:grid-cols-[1.2fr_0.8fr]" delay={0.05}>
           <div className="space-y-4 text-lg leading-relaxed text-muted-fg">
-            <p>{c.profile.summary}</p>
+            <p>{c.profile.about}</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-6">
             <p className="mb-4 font-mono text-[11px] uppercase tracking-wide text-accent">

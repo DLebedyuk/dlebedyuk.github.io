@@ -10,24 +10,27 @@ export const profileEn = {
     'I run interconnected projects in grain logistics: government system and EDI integrations, electronic waybills, time slots. Experience, case studies and skills.',
   summary:
     'Technical project manager with experience in integrations and API development. I lead cross-functional teams (including external ones) at every stage: from decomposing business tasks to launching solutions in production. I understand system architecture and how services interact, and I work at the intersection of business and development. I work with complex integrations and legacy systems and help get tasks to delivery faster.',
+  about:
+    'My development background lets me talk to business and technical specialists in the same language. I like diving deep into the details and taking part in decisions that are not only business ones but also, for example, infrastructure or technology ones. I believe the key to sustainable long-term work is a shared understanding within the team, both of processes and of how people interact.',
   location: 'Rostov-on-Don, Russia',
+  facts: ['Rostov-on-Don', 'remote / hybrid', 'open to business trips', 'open to relocation'],
 };
 
 export const keySkillsEn = [
-  'I rebuild an understanding of complex, poorly documented systems.',
-  'I connect business, development and external teams.',
-  'I take on product and analytical tasks when there is no dedicated role.',
-  'I take changes through to launch, including regulatory requirements.',
-  'I organise work during critical failures and keep stakeholders informed.',
+  'I rebuild an understanding of complex, poorly documented systems',
+  'I connect business, development and external teams',
+  'I take on product and analytical tasks when there is no dedicated role',
+  'I take changes through to launch, including regulatory requirements',
+  'I organise work during critical failures and keep stakeholders informed',
 ];
 
 export const enjoySolvingEn = [
-  'Stitching heterogeneous systems — APIs, EDI, external vendors — into one working process.',
-  'Working incidents while they are hot: assembling the right people and keeping stakeholders informed.',
-  'Reconstructing a system map from code and traffic when there is no documentation, and digging to the real cause.',
-  'Turning regulatory requirements into clear tasks and hitting deadlines set by legislation, not by the backlog.',
-  'Keeping several teams and projects in one context at once.',
-  'Gathering requirements and launching changes when part of the information is simply unavailable.',
+  { title: 'Integrations', description: 'Stitching heterogeneous systems — APIs, EDI, external vendors — into one working process.' },
+  { title: 'Incident response', description: 'Working incidents while they are hot: assembling the right people and keeping stakeholders informed.' },
+  { title: 'Technical investigations', description: 'Reconstructing a system map from code and traffic when there is no documentation, and digging to the real cause.' },
+  { title: 'Working with legislation', description: 'Turning regulatory requirements into clear tasks and hitting deadlines set by legislation, not by the backlog.' },
+  { title: 'Working with several teams', description: 'Keeping several teams and projects in one context at once.' },
+  { title: 'Gathering requirements under uncertainty', description: 'Gathering requirements and launching changes when part of the information is simply unavailable.' },
 ];
 
 export const categoriesEn: Record<CaseStudyCategory, { label: string; description: string }> = {
@@ -49,158 +52,169 @@ export const categoriesEn: Record<CaseStudyCategory, { label: string; descriptio
   },
 };
 
-type CaseEn = Partial<Omit<CaseStudy, 'slug' | 'category' | 'draft'>>;
+type CaseEn = Partial<Omit<CaseStudy, 'slug' | 'category'>>;
 
 export const caseStudiesEn: Record<string, CaseEn> = {
   'port-transit-incident': {
-    title: 'Coordinating a critical incident at the terminal',
-    oneLiner:
-      'The terminal could not accept vehicles because of a timeslot-deletion failure — I pulled the right people together and organised the fix.',
+    title:
+      'Emergency halt of vehicle intake at the terminal',
     context:
-      'The terminal could not accept vehicles due to a problem with deleting timeslots. A manager from another project asked for help.',
+      'Due to changing weather conditions and internal issues, the terminal could not accept vehicles. Vehicle intake had to be stopped urgently and all slots already booked at the terminal deleted. A manager from another project asked for help.',
     problem:
-      "The failure blocked vehicle intake at the terminal — not a side process, but the site's core operation.",
+      'The failure blocked vehicle intake at the terminal — not a side process, but the site\'s core operation.',
     whyHard:
       'The right people from different teams had to be assembled quickly and a plan built in real time, without a ready-made runbook for this particular case.',
-    role: 'Joined the investigation of the critical failure.',
+    role:
+      'Joined as the technical manager.',
     decisions:
       'Brought managers, developers and leadership together; built an action plan and order of steps together with my manager; then coordinated execution and communication between participants, keeping stakeholders informed on progress.',
+    tradeoffs:
+      'To move faster, we deleted the slots manually.',
     outcome:
-      "Organised a controlled resolution of the incident while the terminal's operation was blocked.",
-    draftNote: 'Story and role are there; missing the downtime duration and what exactly was fixed.',
+      'Vehicle intake was stopped and the booked slots deleted. Afterwards I wrote a runbook in case the situation happens again.',
   },
   'fgis-zerno': {
-    title: 'FGIS "Zerno" integration',
-    draftNote: 'This topic is not in the source material at all — to be recalled from scratch.',
+    title:
+      'Migrating to the new FGIS "Zerno" integration',
+    context:
+      'The integration with FGIS "Zerno" (the state grain traceability system) ran on the old scheme — we had to move to the new one.',
+    problem:
+      'The new integration had to be designed, built into the system, run in parallel with the old one and debugged. Along the way it turned out the new integration was not delivering all the data we needed.',
+    whyHard:
+      'The FGIS support team gave no concrete answers. Logs and exchange details had to be pulled out through a series of emails, each giving only part of the picture.',
+    role:
+      'Project manager.',
+    decisions:
+      'Ran the new integration in parallel with the old one so the migration would not stop operations. Kept pressing FGIS support until they pointed out what needed to change on our side.',
+    outcome:
+      'We made the changes on our side that support recommended — the new integration started working and delivering all the data we needed.',
   },
   'etrn-launch': {
-    title: 'Launching ETrN-based vehicle intake at the "Podskok" terminal',
-    oneLiner:
-      'With no dedicated product manager, got the terminal ready for the mandatory switch to electronic transport waybills (ETrN) on 1 September.',
+    title:
+      'Launching vehicle intake via electronic waybills (ETrN) at the terminal',
     context:
-      'There was no dedicated product manager on the project; without ETrN support the terminal would not have been able to accept vehicles after the legal transition on 1 September.',
+      'From 1 September, electronic transport waybills (ETrN) became mandatory: without them the terminal could not accept vehicles. There was no dedicated product manager on the project.',
     problem:
-      'ETrN-based intake had to be built before a hard regulatory deadline — otherwise the terminal would lose the ability to accept transport.',
+      'ETrN intake had to be delivered by a hard regulatory deadline — otherwise the terminal would lose the ability to accept vehicles.',
     whyHard:
-      'A hard legal deadline with no option to postpone, plus no dedicated product role — requirements gathering, prioritisation and alignment all fell to me.',
-    role: 'Gathered requirements and worked out the ETrN business process; aligned the solution between business and development.',
+      'A hard legal deadline with no option to postpone, plus no dedicated product role — I had to cover requirements gathering, prioritisation and alignment myself.',
+    role:
+      'Gathered requirements, worked out the ETrN business process, and aligned the solution between the business and development.',
     decisions:
-      'Coordinated implementation of ETrN vehicle intake and tracked readiness against the mandatory deadline.',
+      'Coordinated the implementation of ETrN vehicle intake and tracked the solution’s readiness for the mandatory date.',
+    tradeoffs:
+      'To meet the deadline we dropped part of the automation — those steps were done manually at launch.',
     outcome:
-      'Got the terminal ready for the regulatory change and kept its ability to accept transport.',
-    draftNote: 'Story and outcome are confirmed; missing scale (how many vehicles/partners) and exact dates.',
+      'Got the terminal ready for the regulatory change and kept it able to accept vehicles.',
   },
   'etrn-edo-scenarios': {
-    title: 'ETrN scenarios and roaming between EDI operators',
-    oneLiner: 'Analysed complex electronic transport waybill scenarios and how EDI operators interact.',
+    title:
+      'Electronic waybill scenarios and EDI operator roaming',
     context:
-      'Needed to understand complex scenarios of electronic transport waybills and the interaction of electronic document exchange (EDI) operators.',
+      'To develop our internal system for electronic transport waybills (ETrN), I had to understand complex ETrN scenarios and how EDI operators interact with each other.',
     problem:
-      'Waybills sometimes failed to link correctly, pointing to problem scenarios at the junction of different EDI operators.',
+      'The product manager on the project changed — the new person had to be brought up to speed.',
     whyHard:
-      'The problem sat on the border of several external systems (ETrN, EPL, SDIZ) and different EDI operators with roaming between them — an area where no single party sees the full picture.',
-    role: 'Studied the business processes of ETrN, EPL and SDIZ, analysed roaming between EDI operators and searched for the causes of unlinked waybills.',
+      'ETrN and electronic waybill (EPL) business processes are complex in themselves, and all the technical expertise on the project sat with me. Onboarding a newcomer into that context without losing pace was a task of its own.',
+    role:
+      'Development manager: studied the ETrN, EPL and SDIZ business processes and the regulations, analysed roaming between EDI operators, worked with external teams.',
     decisions:
-      'Drafted improvement proposals and translated regulatory requirements into clear tasks for the team.',
-    technologies: ['ETrN', 'EPL', 'SDIZ', 'EDI'],
+      'Drafted proposals for improvements and turned regulatory requirements into clear tasks for the team.',
     outcome:
-      'Laid the groundwork for correct document processing and for releases driven by legislative changes.',
-    draftNote:
-      'Marked in the source as an addition from earlier discussions — check against specific tasks before publishing.',
-  },
-  astral: {
-    title: 'Astral integration',
-    oneLiner: 'Spotted a licensing risk of a new technology in advance, before it became a problem.',
-    problem: 'A risk related to the licence of a new technology was identified in advance.',
-    draftNote:
-      'Only one lead line: which technology, how the risk was found, how the problem was prevented — to be recalled in full.',
+      'The new product manager got up to speed and works independently, work on the project never stopped, and the ETrN scenarios are worked out.',
   },
   glonass: {
-    title: 'GLONASS integration against fraud',
-    oneLiner: 'Organised a GLONASS integration to counter fraud, as the business required.',
-    context: 'The business needed a way to counter fraud.',
-    role: 'Organised the GLONASS integration.',
-    technologies: ['GLONASS'],
-    draftNote: 'Goal and fact of integration are there; missing technical solution, participants and effect.',
-  },
-  'soap-integrations': {
-    title: 'SOAP integrations',
-    draftNote: 'Not in the source material — recall where exactly SOAP was used.',
+    title:
+      'GLONASS integration against fraud',
+    context:
+      'The business knew some drivers were committing fraud. They had to be identified by the actual location of their vehicles.',
+    problem:
+      'Vehicle location data from the existing GLONASS service had to be connected quickly.',
+    whyHard:
+      'The request was urgent, and the developers already had work in progress.',
+    role:
+      'Organised the integration with the existing GLONASS service.',
+    decisions:
+      'Decided which side handles which part of the data processing. Raised the priority of the integration and moved developers off their current tasks onto it for a few days.',
+    tradeoffs:
+      'Other tasks were postponed for that time.',
+    outcome:
+      'We became able to analyse vehicle locations and identify the ones committing fraud.',
   },
   'certificate-automation': {
-    title: 'Automating certificate expiry control',
-    oneLiner: 'Automated monitoring of certificate expiry: data collection, notifications, calendar reminders.',
-    context: 'Certificate expiry dates had to be tracked without constant manual checking.',
-    problem: 'Manual tracking risked missing the renewal of a critical certificate.',
-    role: 'Automated certificate data collection; took part in deploying and maintaining the service.',
+    title:
+      'Automating deadline tracking',
+    context:
+      'The team was tired of things with a deadline popping up on a regular basis — certificates or any other action that has to be done on time — and having to handle each one in a rush.',
+    problem:
+      'Tracking deadlines by hand carried the risk of missing a critical date and ending up with an incident.',
+    whyHard:
+      'Deadline data was scattered across different sources, and it was unclear how to bring it all into one place.',
+    role:
+      'Built the deadline-tracking service myself — from scratch to a working result, with the help of AI tools — and got it running.',
     decisions:
-      'Set up notifications and calendar reminders for expiry; connected the form, service and calendar and configured event creation.',
-    outcome: 'Reduced manual control effort and the risk of missing a critical certificate renewal.',
-    draftNote:
-      'Actions confirmed; no numbers (how many certificates, how often they were missed before) and no exact stack.',
+      'Set up notifications and calendar reminders for expiring deadlines; connected the form, the service and the calendar, and set up automatic event creation.',
+    tradeoffs:
+      '',
+    outcome:
+      'Reduced manual tracking effort and the risk of missing a critical deadline.',
   },
   'payment-automation': {
-    title: 'Automating payment processing',
-    oneLiner: 'Automated payment processing between systems, cutting manual operations.',
-    context: 'Payment intake involved manual operations and a risk of data-processing errors.',
-    problem: 'Manual payment processing between systems carried a risk of errors.',
-    role: 'Analysed the payment intake process.',
-    decisions: 'Organised automation of data processing between systems.',
-    outcome: 'Reduced the number of manual operations and the likelihood of errors.',
-    draftNote: 'Confirmed, but without quantitative metrics or system names.',
-  },
-  'release-management': {
-    title: 'Release planning across multiple projects',
-    oneLiner: 'Planned releases and kept business and the technical team in sync during legislative changes.',
-    context: 'Ran several projects in parallel.',
+    title:
+      'Automating payment processing',
+    context:
+      'When invoices were paid, receiving payments and processing the data between systems was done by hand.',
+    problem:
+      'Because of the human factor, processing took a long time and errors happened.',
     whyHard:
-      'Legislative changes set hard release deadlines that had to be aligned with the normal course of development.',
-    role: 'Planned releases and tracked deadlines.',
-    decisions: 'Synchronised business and the technical team during legislative changes.',
-    draftNote:
-      'Still a generalisation rather than a concrete story — add scale: how many projects, releases, teams.',
-  },
-  'multi-team-management': {
-    title: 'Coordinating development, testing, design and DevOps at once',
-    oneLiner: 'Coordinated several functions in parallel across several projects.',
-    context: 'Ran several projects in parallel.',
-    whyHard:
-      'Several functions — development, testing, design, DevOps — had to be held in one context across several projects at once.',
-    role: 'Coordinated development, testing, design and DevOps.',
-    draftNote:
-      'Based on the same source paragraph as "Release planning" — worth merging these two back once details appear.',
+      'The manual process worked poorly, and it was unclear how to rebuild it properly.',
+    role:
+      'Analysed the payment intake process.',
+    decisions:
+      'Decided to automate the processing, got leadership sign-off and explained to the developers how it should work.',
+    tradeoffs:
+      '',
+    outcome:
+      'Removed human involvement from payment processing in all but truly non-standard cases.',
   },
   'carrier-product-ownership': {
-    title: 'Product direction for carriers',
-    oneLiner: 'Took over the product direction: promo landing page, subscriptions, metrics, North Star Metric.',
-    context: 'The project needed someone to take on part of the product work for carriers.',
+    title:
+      'Product ownership for one user group',
+    context:
+      'We needed to understand how one of our user groups used the app and whether it was worth investing in new functionality for them. Leadership proposed running a promo campaign to see whether it would give users more motivation to use the app.',
+    problem:
+      'There was no dedicated product manager on the project.',
     whyHard:
-      'Had to take on the whole product role — from a landing page to a metrics system — without a formal move into that role.',
-    role: 'Picked up the direction as a product manager.',
+      'I had never done product work before — I had to take on the whole product role.',
+    role:
+      'Owned the product direction end to end.',
     decisions:
-      'Launched a promo landing page, removed the subscription-tracking logic for carriers, added product metrics and defined the North Star Metric.',
-    outcome: 'Shaped and delivered a set of product changes and a system for measuring their impact.',
-    draftNote: 'Need metric names and the effect — already flagged in the source as an open question.',
+      'Designed the promo landing page and organised its launch. Mapped the existing metrics, added new ones and chose a North Star Metric. Shaped and delivered the requirements together with the development team. Built a framework for measuring the landing page’s impact on the metrics and presented it to leadership.',
+    tradeoffs:
+      '',
+    outcome:
+      'Gathered the data on which leadership and I jointly decided not to invest in new functionality for this user group.',
   },
   'kontur-integration': {
-    title: 'Recovering and launching the Kontur integration',
-    oneLiner: 'Recovered a lost Kontur integration and brought it to working waybill exchange via API.',
+    title:
+      'Restoring and launching an integration with a third-party system',
     context:
-      'The company had lost the full understanding of the old Kontur integration; receiving transport waybills via API had to be set up.',
+      'The company had an integration with a third-party system, but nobody fully understood how it worked. We needed to set up receiving data through it.',
     problem:
-      'Nobody understood how the existing integration worked, and a check revealed it had been registered to the wrong legal entity.',
+      'Technically the integration was built correctly, but the legal side had to be sorted out and it had to be pinned down which access keys we were using.',
     whyHard:
-      "The problem was not only technical: someone else's legacy integration had to be untangled and a legal issue resolved — contracts and registration of the correct legal entity — before the API could work at all.",
-    role: 'Recovered the logic of the old integration and verified the access keys.',
+      'Nobody on the team understood how the integration was set up, and the blocker turned out to be legal rather than technical — without the right paperwork it could not work.',
+    role:
+      'Project manager.',
     decisions:
-      'Initiated contracts and registration of the correct legal entity, got the company added as a partner in Kontur, and agreed with another terminal on ETrN filling rules so that the terminal would receive waybills as an observer.',
-    technologies: ['Kontur API', 'ETrN'],
-    outcome: 'Launched receiving transport waybills via the Kontur API for one of the projects.',
-    draftNote: 'A strong, complete story — missing the timeline and scale (how many waybills/partners).',
+      'Reconstructed how the integration worked from the legal side, initiated signing an additional contract and registered the connection under the correct legal entity.',
+    tradeoffs:
+      '',
+    outcome:
+      'Contracts are signed, the setup is documented, the integration works as it should, and the team understands how it is built.',
   },
   'production-investigation': {
     title: 'Technical investigation of anomalous changes in production',
-    oneLiner: 'Found an undocumented service that changed production data bypassing the main business logic.',
     context:
       'Records with a source unknown to the team kept appearing in the production database; there was no documentation or complete map of the system.',
     problem:
@@ -211,18 +225,23 @@ export const caseStudiesEn: Record<string, CaseEn> = {
     decisions: 'Worked in a loop of hypothesis → check → new data → next hypothesis.',
     outcome:
       'Found an internal undocumented service that changed production data directly, bypassing the main business logic, and identified a functional defect: data was deleted instead of being transferred correctly. Prepared conclusions for assessing technical debt.',
-    draftNote:
-      'The source notes that the file with investigation details is unavailable — verify system names and the final effect. Likely linked to the separately mentioned "delete_who investigation" — confirm and merge if it is the same case.',
   },
   'telegram-bot-waybills': {
-    title: 'Designing a Telegram bot for waybills',
-    oneLiner: 'Designed access to transport waybills via a Telegram bot: authorisation, documents, QR codes.',
-    context: 'Scenarios for accessing waybills through a Telegram bot had to be worked out.',
-    role: "Took part in designing the bot's integration with the system.",
+    title:
+      'Designing a Telegram bot for working with waybills',
+    context:
+      'The existing channel for getting waybills was inconvenient — the path to them had to be shortened with a Telegram bot working with the internal API.',
+    problem:
+      'The user scenarios and the bot’s technical logic for working with the internal API had to be designed independently.',
+    whyHard:
+      'The task was entirely mine, start to finish, with no help from anyone else.',
+    role:
+      'Designed the bot: wrote a document covering the scenarios, how it would work technically, which requests had to be added and what could be reused from the existing system.',
     decisions:
-      'Worked out phone-number authorisation, requirements for retrieving and displaying waybills, and issuing document QR codes.',
-    technologies: ['Telegram Bot API', 'QR codes'],
-    outcome: 'Prepared scenarios and requirements for integrating a user channel with the waybill system.',
-    draftNote: 'Addition from another discussion — launch result (did the bot reach production) is not confirmed.',
+      'Agreed the user scenarios with leadership; defined the level of the bot’s interaction with the system via the API.',
+    tradeoffs:
+      '',
+    outcome:
+      'Delivered complete requirements the bot was built from. After legislative changes, the bot was moved to the MAX messenger.',
   },
 };

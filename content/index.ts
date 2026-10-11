@@ -1,4 +1,3 @@
-import { showDrafts } from '@/lib/config';
 import { profile } from './profile';
 import { keySkills, enjoySolving } from './profile';
 import { caseStudies, caseStudyCategories, type CaseStudy, type CaseStudyCategory } from './case-studies';
@@ -16,9 +15,8 @@ export type { Locale } from './ui';
 
 const hasTodo = (s: string) => s.includes('TODO');
 
-/** Убирает TODO-заглушки (только в публичном режиме). */
-function clean(s: string): string {
-  if (showDrafts) return s;
+/** Убирает TODO-заглушки из ещё не переписанных кейсов. */
+function stripTodo(s: string): string {
   const t = s.trim();
   if (t.startsWith('TODO')) return '';
   return t.replace(/\s*[—-]\s*TODO[\s\S]*$/, '').trim();
@@ -26,7 +24,6 @@ function clean(s: string): string {
 
 export type SiteContent = {
   locale: Locale;
-  showDrafts: boolean;
   ui: UI;
   profile: {
     name: string;
@@ -34,6 +31,7 @@ export type SiteContent = {
     tagline: string;
     metaDescription: string;
     summary: string;
+    about: string;
     location: string;
     email: string;
     github: string;
@@ -41,6 +39,7 @@ export type SiteContent = {
     telegram: string;
     resume: { ru: string; en: string };
   };
+  facts: string[];
   keySkills: string[];
   enjoySolving: { title: string; description: string }[];
   categories: { id: CaseStudyCategory; label: string; description: string }[];
@@ -53,7 +52,6 @@ export type SiteContent = {
 
 const caseFields = [
   'title',
-  'oneLiner',
   'context',
   'problem',
   'whyHard',
@@ -61,7 +59,6 @@ const caseFields = [
   'decisions',
   'tradeoffs',
   'outcome',
-  'learned',
 ] as const;
 
 export function getContent(locale: Locale): SiteContent {
@@ -75,27 +72,23 @@ export function getContent(locale: Locale): SiteContent {
       const v = (tr as Record<string, string | undefined>)[f];
       merged[f] = v ?? (en && hasTodo(cs[f]) ? 'TODO' : cs[f]);
     }
-    merged.draftNote = (tr.draftNote as string | undefined) ?? cs.draftNote;
     merged.technologies = tr.technologies ?? cs.technologies;
     return merged;
   });
 
-  if (!showDrafts) {
-    cases = cases
-      .filter((c) => !hasTodo(c.context) && c.context.trim() !== '')
-      .map((c) => {
-        const out = { ...c, draft: false, draftNote: '' };
-        for (const f of caseFields) out[f] = clean(c[f]);
-        return out;
-      });
-  }
+  cases = cases
+    .filter((c) => !hasTodo(c.context) && c.context.trim() !== '')
+    .map((c) => {
+      const out = { ...c };
+      for (const f of caseFields) out[f] = stripTodo(c[f]);
+      return out;
+    });
 
   // --- skills
   const skills = en ? cvSkillsEn : cvSkillsRu;
 
   return {
     locale,
-    showDrafts,
     ui: ui[locale],
     profile: {
       name: en ? 'Daria Lebedyuk' : profile.name,
@@ -103,6 +96,7 @@ export function getContent(locale: Locale): SiteContent {
       tagline: en ? profileEn.tagline : profile.tagline,
       metaDescription: en ? profileEn.metaDescription : profile.metaDescription,
       summary: en ? profileEn.summary : profile.summary,
+      about: en ? profileEn.about : profile.about,
       location: en ? profileEn.location : profile.location,
       email: profile.email,
       github: profile.github,
@@ -110,11 +104,9 @@ export function getContent(locale: Locale): SiteContent {
       telegram: profile.telegram,
       resume: profile.resume,
     },
+    facts: en ? profileEn.facts : profile.facts,
     keySkills: en ? keySkillsEn : keySkills,
-    enjoySolving: enjoySolving.map((e, i) => ({
-      title: e.title,
-      description: en ? enjoySolvingEn[i] ?? e.description : e.description,
-    })),
+    enjoySolving: en ? enjoySolvingEn : enjoySolving,
     categories: caseStudyCategories.map((c) => ({
       id: c.id,
       label: en ? categoriesEn[c.id].label : c.label,

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Mail } from 'lucide-react';
+import { ArrowDown, Linkedin, MapPin, Send } from 'lucide-react';
 import { Container } from '@/components/container';
 import { ResumeButtons } from '@/components/resume-buttons';
 import type { SiteContent } from '@/content';
@@ -24,6 +24,32 @@ export function Hero({ c }: { c: SiteContent }) {
           {profile.tagline}
         </motion.h1>
 
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.12 }}
+          className="mt-6 max-w-2xl text-base leading-relaxed text-muted-fg sm:text-lg"
+        >
+          {profile.summary}
+        </motion.p>
+
+        <motion.ul
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-5 flex flex-wrap gap-2"
+        >
+          {c.facts.map((f, i) => (
+            <li
+              key={f}
+              className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1.5 text-xs text-muted-fg sm:text-sm"
+            >
+              {i === 0 && <MapPin className="h-3.5 w-3.5" />}
+              {f}
+            </li>
+          ))}
+        </motion.ul>
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,31 +64,26 @@ export function Hero({ c }: { c: SiteContent }) {
             <ArrowDown className="h-4 w-4" />
           </a>
           <a
-            href={profile.github}
+            href={`https://t.me/${profile.telegram}`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
           >
-            <Github className="h-4 w-4" />
-            GitHub
+            <Send className="h-4 w-4" />
+            {ui.contact.telegram}
           </a>
           <a
-            href={`mailto:${profile.email}`}
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
           >
-            <Mail className="h-4 w-4" />
-            {ui.hero.write}
+            <Linkedin className="h-4 w-4" />
+            {ui.contact.linkedin}
           </a>
+          <ResumeButtons c={c} className="contents" />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.24 }}
-          className="mt-3"
-        >
-          <ResumeButtons c={c} />
-        </motion.div>
       </Container>
     </section>
   );
