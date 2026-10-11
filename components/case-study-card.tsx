@@ -7,7 +7,6 @@ import type { CaseStudy } from '@/content/case-studies';
 import type { SiteContent } from '@/content';
 
 const fieldKeys = [
-  'context',
   'problem',
   'whyHard',
   'role',
@@ -39,6 +38,9 @@ export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <h3 className="text-lg font-medium">{study.title}</h3>
           </div>
+          {study.context.trim() && (
+            <p className="text-sm leading-relaxed text-muted-fg">{study.context}</p>
+          )}
           {study.technologies.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-2">
               {study.technologies.map((tech) => (
