@@ -23,7 +23,7 @@ export function Education({ c }: { c: SiteContent }) {
           ))}
         </div>
         <Reveal className="mt-8" delay={0.1}>
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-wide text-accent">{t.additional}</p>
+          <p className="mb-3 font-mono text-xs uppercase tracking-wide text-accent">{t.additional}</p>
           <ul className="space-y-2 text-sm text-muted-fg">
             {c.courses.map((k) => (
               <li key={k.provider + k.name} className="flex gap-2">

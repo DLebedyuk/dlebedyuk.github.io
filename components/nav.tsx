@@ -22,7 +22,7 @@ export function Nav({ c }: { c: SiteContent }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between gap-3">
+      <Container className="flex min-h-16 items-center justify-between gap-3 py-2">
         <a href="#top" className="shrink-0 truncate font-mono text-sm font-medium">
           {c.profile.name}
         </a>

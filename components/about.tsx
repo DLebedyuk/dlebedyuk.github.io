@@ -13,7 +13,7 @@ export function About({ c }: { c: SiteContent }) {
             <p>{c.profile.about}</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-6">
-            <p className="mb-4 font-mono text-[11px] uppercase tracking-wide text-accent">
+            <p className="mb-4 font-mono text-xs uppercase tracking-wide text-accent">
               {c.ui.about.keySkills}
             </p>
             <ul className="space-y-3 text-sm text-muted-fg">

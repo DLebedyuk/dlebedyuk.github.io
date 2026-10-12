@@ -18,7 +18,7 @@ export function ResumeButtons({ c, className }: { c: SiteContent; className?: st
         >
           <Download className="h-4 w-4" />
           {it.label}
-          <span className="font-mono text-[11px] text-muted-fg">PDF</span>
+          <span className="font-mono text-xs text-muted-fg">PDF</span>
         </a>
       ))}
     </div>

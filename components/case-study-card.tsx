@@ -31,7 +31,7 @@ export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }
       >
         <div className="min-w-0 flex-1">
           {category && (
-            <p className="mb-2 font-mono text-[11px] uppercase tracking-wide text-muted-fg">
+            <p className="mb-2 font-mono text-xs uppercase tracking-wide text-muted-fg">
               {category.label}
             </p>
           )}
@@ -46,7 +46,7 @@ export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }
               {study.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full bg-muted px-2.5 py-1 font-mono text-[11px] text-muted-fg"
+                  className="rounded-full bg-muted px-2.5 py-1 font-mono text-xs text-muted-fg"
                 >
                   {tech}
                 </span>
@@ -71,7 +71,7 @@ export function CaseStudyCard({ study, c }: { study: CaseStudy; c: SiteContent }
               <div className="grid gap-6 lg:grid-cols-2">
                 {fields.map((key) => (
                   <div key={key}>
-                    <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wide text-accent">
+                    <p className="mb-1.5 font-mono text-xs uppercase tracking-wide text-accent">
                       {t.fields[key]}
                     </p>
                     <p className="text-sm leading-relaxed text-muted-fg">{study[key]}</p>

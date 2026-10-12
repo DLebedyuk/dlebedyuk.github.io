@@ -13,7 +13,7 @@ export function Skills({ c }: { c: SiteContent }) {
           <dl className="divide-y divide-border rounded-2xl border border-border bg-card">
             {c.skillCategories.map((cat) => (
               <div key={cat.title} className="grid gap-1.5 px-5 py-4 sm:grid-cols-[13rem_1fr] sm:gap-6 sm:px-6">
-                <dt className="font-mono text-[11px] uppercase tracking-wide text-accent sm:pt-0.5">{cat.title}</dt>
+                <dt className="font-mono text-xs uppercase tracking-wide text-accent sm:pt-0.5">{cat.title}</dt>
                 <dd className="text-sm leading-relaxed text-muted-fg">{cat.items.join(' · ')}</dd>
               </div>
             ))}
